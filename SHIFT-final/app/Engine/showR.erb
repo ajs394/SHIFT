@@ -1,0 +1,35 @@
+<div data-role="page">
+	<div data-role="header" data-position="inline">
+    <h1>Scan Results</h1>
+    
+    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      Back
+    </a>
+	  
+    <% if System::get_property('has_camera') %>
+	    <a href="<%= url_for :action => :camera %>">Retake</a>
+	  <% end %>
+
+  </div>
+  <div id="content" data-role="content">
+		<% if System::get_property('has_camera') %> 
+      <% $barcode.each_pair do |name, value| %>
+        <div class="itemLabel"><%= name %>: </div> <div class="itemValue"><%= value %></div>
+      <% end %>
+    <% end %> 
+    
+    <form action = "search">
+      <div data-role="fieldcontain">
+        <label>Check the boxes for terms you want to use in your search:</label>
+        <fieldset data-role="controlgroup">
+          <% $barcode.each_pair do |name, value| %>
+            <input type="checkbox" class="custom" name="<%= name %>" id="<%= name %>"/>
+            <label for="<%= name %>"><%= value %></label>
+          <% end %>
+        </fieldset>
+      </div>
+      <input type="submit" class="standardButton" value="Search" />
+    </form>   
+	
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div data-role="page" data-add-back-btn="false">
+
+  <div data-role="header" data-position="inline">
+    <h1><%= @engine.Name %></h1>
+    <a href="<%= url_for :action => :engindex %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">Back</a>
+    <a href="<%= url_for :action => :edit, :id => @engine.object %>" class="ui-btn-right" data-icon="star">Edit</a>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+    
+      
+        <% @hash.each_pair do |name, value| %>
+          <li>
+            <div class="itemLabel"><%= name %></div>
+            <div class="itemValue"><%= value %></div>
+          </li>
+        <% end %>
+      
+    </ul>
+  </div>
+
+</div>

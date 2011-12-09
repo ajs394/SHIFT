@@ -1,0 +1,23 @@
+<div data-role="page">
+
+	<div data-role="header" data-position="inline">
+    <h1>SHIFT</h1>    
+	</div>
+	
+	<% if System::get_property('has_camera') %>
+	  <a href="<%= url_for :action => :showR_setup %>"  data-role="button" >
+	    Scan QR Code
+	  </a>
+	<% end %>
+  
+  <a href="<%= url_for :action => :enter_setup %>"  data-role="button" >
+    Search Text
+  </a>
+	
+  <a href="<%= url_for :action => :engindex %>"  data-role="button" >
+	  View and Edit Search Engines
+	</a>
+	
+	</br>
+</div>
+

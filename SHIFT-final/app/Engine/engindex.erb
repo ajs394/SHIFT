@@ -1,0 +1,23 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Engines</h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="home" data-direction="reverse">Home</a>
+    <a href="<%= url_for :action => :new_setup %>" class="ui-btn-right" data-icon="plus">New Engine</a>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      <% @engines.each do |engine| %>
+      
+          <li>
+            <a href="<%= url_for :action => :show, :id => engine.object %>">
+              <%= engine.Name %>
+            </a>
+          </li>
+      
+      <% end %>
+    </ul>
+  </div>
+
+</div>
